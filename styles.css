@@ -1,0 +1,475 @@
+/* Estilos actualizados */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #ffffff;
+    --accent-color: #c5a47e;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    line-height: 1.6;
+}
+
+/* Navbar */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+    background: rgba(26, 26, 26, 0.95);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.swiper-container {
+    width: 100%;
+    /* Ajusta el tamaño según necesites */
+    max-width: 600px;
+    /* Máximo ancho */
+    height: auto;
+    /* Ajusta la altura automáticamente */
+    margin: 20px auto;
+    /* Centrado con margen */
+    border-radius: 10px;
+    /* Bordes redondeados opcionales */
+    overflow: hidden;
+    /* Evita desbordamiento */
+}
+
+.swiper-slide img {
+    width: 100%;
+    /* Asegura que la imagen se ajuste al contenedor */
+    height: auto;
+    /* Mantiene la proporción */
+    border-radius: 10px;
+}
+
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+    /* Aumenta este valor si sigue superponiéndose */
+    position: relative;
+    /* Mantiene la posición dentro del flujo normal */
+    z-index: 1;
+    /* Asegura que no se sobreponga al texto */
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    /* Degradado sutil */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    /* Ajusta el ancho para evitar que ocupe toda la pantalla */
+    margin: 0 auto;
+    /* Centra el contenido */
+}
+
+
+
+.hero h1 {
+    font-family: var(--font-serif);
+    font-size: 50px;
+    /* Ajusta el tamaño si es necesario */
+    margin-top: 40px;
+    /* Agrega espacio desde arriba */
+    padding-top: 25px;
+    /* Espacio adicional dentro del contenedor */
+    text-align: center;
+}
+
+
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    color: var(--secondary-color);
+    /* Asegura que el texto sea visible */
+}
+
+.btn {
+    padding: 15px 40px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+}
+
+.btn::after {
+    content: '';
+    position: center;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn:hover::after {
+    left: 100%;
+}
+
+.btn:hover {
+    background-color: #b08f69;
+    transform: translateY(-2px);
+}
+
+/* Secciones generales */
+.section {
+    padding: 120px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section h2 {
+    font-family: var(--font-serif);
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: var(--accent-color);
+}
+
+
+
+/* Estilo para justificar el texto */
+.justified-text {
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* Detalles */
+.details {
+    text-align: center;
+}
+
+.details ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.details li {
+    font-size: 20px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.details li:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.details li strong {
+    display: block;
+    font-family: var(--font-serif);
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+/* Detalles de la Boda */
+
+.evento {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+}
+
+.evento:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.evento h3 {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.evento ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.evento li {
+    font-size: 20px;
+    margin: 15px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.evento li:last-child {
+    border-bottom: none;
+}
+
+.frase-especial {
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 18px;
+    color: var(--accent-color);
+    opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .evento {
+        padding: 20px;
+    }
+
+    .evento h3 {
+        font-size: 28px;
+    }
+
+    .evento li {
+        font-size: 18px;
+    }
+
+    .frase-especial {
+        font-size: 16px;
+    }
+}
+
+/* RSVP */
+.rsvp {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 100px 30px;
+}
+
+#rsvp-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 15px;
+}
+
+#rsvp-form label {
+    display: block;
+    margin: 15px 0 5px;
+    text-align: left;
+    font-size: 16px;
+}
+
+#rsvp-form input,
+#rsvp-form textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--secondary-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#rsvp-form input:focus,
+#rsvp-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(197, 164, 126, 0.3);
+}
+
+#rsvp-form button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--accent-color);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+#rsvp-form button:hover {
+    background-color: #b08f69;
+}
+
+/* Ubicación */
+.location {
+    text-align: center;
+}
+
+#map {
+    height: 500px;
+    margin-top: 30px;
+    background-color: #666;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 50px 30px;
+    background-color: #000;
+    margin-top: 100px;
+}
+
+footer p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        height: calc(100vh - 80px);
+        padding-top: 80px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 20px;
+    }
+
+    .section {
+        padding: 80px 20px;
+    }
+
+    .section h2 {
+        font-size: 36px;
+        margin-bottom: 50px;
+    }
+
+    .story-images {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .image-container {
+        min-height: 300px;
+    }
+
+    .details ul {
+        grid-template-columns: 1fr;
+    }
+
+    #rsvp-form {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+
+    .details li {
+        padding: 20px;
+        font-size: 16px;
+    }
+}
