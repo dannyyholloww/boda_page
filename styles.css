@@ -82,7 +82,7 @@ header {
 .swiper-container {
     width: 100%;
     /* Ajusta el tamaño según necesites */
-    max-width: 600px;
+    max-width: 400px;
     /* Máximo ancho */
     height: auto;
     /* Ajusta la altura automáticamente */
@@ -107,7 +107,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 120px;
+    margin-top: 100px;
     /* Aumenta este valor si sigue superponiéndose */
     position: relative;
     /* Mantiene la posición dentro del flujo normal */
