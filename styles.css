@@ -50,7 +50,7 @@ header {
 .nav-links a {
     color: var(--secondary-color);
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
     letter-spacing: 1px;
     transition: all 0.3s ease;
     position: relative;
@@ -73,6 +73,8 @@ header {
 
 /* Hero Section */
 .hero {
+    background-size: cover;
+    background-position: center;
     position: relative;
     width: 100%;
     height: 100vh;
@@ -82,9 +84,9 @@ header {
 .swiper-container {
     width: 100%;
     /* Ajusta el tamaño según necesites */
-    max-width: 400px;
+    max-width: 100%;
     /* Máximo ancho */
-    height: auto;
+    height: 100%;
     /* Ajusta la altura automáticamente */
     margin: 20px auto;
     /* Centrado con margen */
@@ -124,7 +126,7 @@ header {
     /* Degradado sutil */
     padding: 20px;
     border-radius: 10px;
-    max-width: 80%;
+    max-width: 90%;
     /* Ajusta el ancho para evitar que ocupe toda la pantalla */
     margin: 0 auto;
     /* Centra el contenido */
@@ -154,7 +156,11 @@ header {
 }
 
 .btn {
-    padding: 15px 40px;
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 100%;
     background-color: var(--accent-color);
     color: var(--primary-color);
     text-decoration: none;
@@ -167,6 +173,7 @@ header {
     overflow: hidden;
     border: none;
     cursor: pointer;
+    margin: 10px;
 }
 
 .btn::after {
@@ -422,7 +429,7 @@ header {
 }
 
 #map {
-    height: 500px;
+    height: 300px;
     margin-top: 30px;
     background-color: #666;
     border-radius: 15px;
@@ -446,7 +453,9 @@ footer p {
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
     }
 
     .hero {
@@ -464,10 +473,11 @@ footer p {
 
     .section {
         padding: 80px 20px;
+        max-width: 100%;
     }
 
     .section h2 {
-        font-size: 36px;
+        font-size: 35px;
         margin-bottom: 50px;
     }
 
@@ -481,6 +491,7 @@ footer p {
     }
 
     .details ul {
+        display: grid;
         grid-template-columns: 1fr;
     }
 
@@ -500,7 +511,7 @@ footer p {
     }
 
     .details li {
-        padding: 20px;
-        font-size: 16px;
+        padding: 18px;
+        font-size: 20px;
     }
 }

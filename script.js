@@ -26,6 +26,38 @@ document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper('.swiper-container', {
         loop: true,
         autoplay: { delay: 3000 },
-        effect: 'fade'
+        effect: 'fade',
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+    // Manejo del formulario RSVP
+    const form = document.getElementById('rsvp-form');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const invitados = document.getElementById('invitados').value;
+        const comentarios = document.getElementById('comentarios').value;
+
+        const data = { nombre, invitados, comentarios };
+
+        fetch('http://127.0.0.1:5000/guardar_asistencia', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => alert(data.mensaje))
+            .catch(error => console.error('Error:', error));
+
+        form.reset();
     });
 });
