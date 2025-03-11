@@ -60,4 +60,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         form.reset();
     });
+
+    // Menú desplegable para móviles
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    mobileMenu.addEventListener('click', function () {
+        navLinks.classList.toggle('active'); // Alternar la clase 'active'
+    });
 });

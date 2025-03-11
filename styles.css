@@ -1,4 +1,4 @@
-/* Estilos actualizados */
+/* Estilos actualizados con menú desplegable */
 :root {
     --primary-color: #1a1a1a;
     --secondary-color: #ffffff;
@@ -12,14 +12,16 @@ body {
     color: var(--secondary-color);
     background-color: var(--primary-color);
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
-/* Navbar */
+/* Navbar con menú desplegable */
 header {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    padding: 20px 0;
+    padding: 15px 0;
     transition: all 0.3s ease;
     background: rgba(26, 26, 26, 0.95);
 }
@@ -30,134 +32,162 @@ header {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 20px;
 }
 
 .logo {
     font-family: var(--font-serif);
-    font-size: 26px;
+    font-size: 24px;
     color: var(--secondary-color);
     text-decoration: none;
-    letter-spacing: 1px;
+}
+
+.menu-toggle {
+    display: none;
+    /* Ocultar por defecto */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin: 4px 0;
+    transition: all 0.3s ease;
 }
 
 .nav-links {
-    display: flex;
-    gap: 40px;
     list-style: none;
+    /* Eliminar los puntos de la lista */
+    padding: 0;
+    /* Eliminar el padding por defecto */
+    margin: 0;
+    /* Eliminar el margen por defecto */
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    list-style: none;
+    /* Asegurarse de que no haya puntos en los <li> */
 }
 
 .nav-links a {
     color: var(--secondary-color);
     text-decoration: none;
     font-size: 15px;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
+    padding: 5px 10px;
     position: relative;
+    transition: all 0.3s ease;
 }
 
-.nav-links a::after {
+.nav-links a::before {
     content: '';
     position: absolute;
-    bottom: -5px;
     left: 0;
-    width: 0;
+    bottom: 0;
+    width: 100%;
     height: 2px;
-    background: var(--accent-color);
-    transition: width 0.3s ease;
+    background-color: var(--accent-color);
+    /* Color del fondo */
+    transform: scaleX(0);
+    /* Inicia sin ancho */
+    transform-origin: right;
+    transition: transform 0.3s ease;
 }
 
-.nav-links a:hover::after {
-    width: 100%;
+.nav-links a:hover::before {
+    transform: scaleX(1);
+    /* Ancho completo al hacer hover */
+    transform-origin: left;
 }
 
-/* Hero Section */
+.nav-links a:hover {
+    color: var(--accent-color);
+    /* Cambia el color del texto al hacer hover */
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        /* Ocultar los enlaces por defecto en móviles */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(26, 26, 26, 0.95);
+        width: 200px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    .nav-links.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajustes al carrusel */
 .hero {
-    background-size: cover;
-    background-position: center;
-    position: relative;
     width: 100%;
-    height: 100vh;
+    height: auto;
+    /* Altura automática para que no ocupe toda la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    padding-top: 80px;
+    /* Espacio para evitar superposición con el header */
+}
+
+.carousel-container {
+    width: 100%;
+    /* Ocupar todo el ancho disponible */
+    max-width: 1200px;
+    /* Limitar el ancho máximo */
+    margin: 0 auto;
+    /* Centrar el carrusel */
 }
 
 .swiper-container {
     width: 100%;
-    /* Ajusta el tamaño según necesites */
-    max-width: 100%;
-    /* Máximo ancho */
-    height: 100%;
-    /* Ajusta la altura automáticamente */
-    margin: 20px auto;
-    /* Centrado con margen */
+    height: auto;
+    /* Altura automática para que se ajuste al contenido */
     border-radius: 10px;
-    /* Bordes redondeados opcionales */
     overflow: hidden;
-    /* Evita desbordamiento */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .swiper-slide img {
     width: 100%;
-    /* Asegura que la imagen se ajuste al contenedor */
+    /* Ocupar el 100% del ancho del contenedor */
     height: auto;
-    /* Mantiene la proporción */
+    /* Altura automática para mantener la proporción */
+    max-height: 80vh;
+    /* Limitar la altura máxima */
+    object-fit: contain;
+    /* Asegurar que la imagen se muestre completa */
     border-radius: 10px;
-}
-
-
-.carousel-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    /* Aumenta este valor si sigue superponiéndose */
-    position: relative;
-    /* Mantiene la posición dentro del flujo normal */
-    z-index: 1;
-    /* Asegura que no se sobreponga al texto */
-}
-
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-    /* Degradado sutil */
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 90%;
-    /* Ajusta el ancho para evitar que ocupe toda la pantalla */
-    margin: 0 auto;
-    /* Centra el contenido */
-}
-
-
-
-.hero h1 {
-    font-family: var(--font-serif);
-    font-size: 50px;
-    /* Ajusta el tamaño si es necesario */
-    margin-top: 40px;
-    /* Agrega espacio desde arriba */
-    padding-top: 25px;
-    /* Espacio adicional dentro del contenedor */
-    text-align: center;
-}
-
-
-
-.hero p {
-    font-size: 20px;
-    margin-bottom: 40px;
-    letter-spacing: 1px;
-    color: var(--secondary-color);
-    /* Asegura que el texto sea visible */
 }
 
 .btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 10px 25px;
     font-size: 14px;
     width: 100%;
     max-width: 100%;
@@ -176,24 +206,37 @@ header {
     margin: 10px;
 }
 
+/* Pseudo-elemento para la animación */
 .btn::after {
     content: '';
-    position: center;
+    position: absolute;
     top: 0;
-    left: 100%;
+    left: -100%;
+    /* Comienza fuera del botón */
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.2);
+    /* Color de la animación */
+    transition: all 0.5s ease;
+    z-index: 1;
 }
 
+/* Animación al hacer hover */
 .btn:hover::after {
-    left: 100%;
+    left: 0;
+    /* Desliza el pseudo-elemento hacia la derecha */
 }
 
+/* Cambiar el color del texto al hacer hover */
 .btn:hover {
-    background-color: #b08f69;
-    transform: translateY(-2px);
+    color: var(--secondary-color);
+    /* Cambia el color del texto */
+}
+
+/* Asegurarse de que el texto esté por encima del pseudo-elemento */
+.btn span {
+    position: relative;
+    z-index: 2;
 }
 
 /* Secciones generales */
@@ -205,7 +248,7 @@ header {
 
 .section h2 {
     font-family: var(--font-serif);
-    font-size: 48px;
+    font-size: 35px;
     text-align: center;
     margin-bottom: 80px;
     position: relative;
@@ -336,37 +379,6 @@ header {
     }
 }
 
-/* Ajustes para el carrusel en celulares */
-@media (max-width: 768px) {
-    .swiper-container {
-        width: 100%;
-        height: 250px;
-        /* Altura fija para móviles */
-    }
-
-    .swiper-slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* Asegura que las imágenes no se corten */
-        border-radius: 10px;
-    }
-}
-
-/* Ajustes para los botones */
-@media (max-width: 768px) {
-    .btn {
-        display: block;
-        width: 100%;
-        /* Ocuparán todo el ancho del contenedor */
-        margin: 10px 0;
-        /* Separación entre botones */
-        padding: 12px 20px;
-        /* Ajuste para evitar desbordes */
-        text-align: center;
-    }
-}
-
 /* RSVP */
 .rsvp {
     background-color: rgba(255, 255, 255, 0.05);
@@ -429,7 +441,7 @@ header {
 }
 
 #map {
-    height: 300px;
+    height: 400px;
     margin-top: 30px;
     background-color: #666;
     border-radius: 15px;
@@ -450,68 +462,62 @@ footer p {
     opacity: 0.8;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+
+
+@media screen and (max-width: 768px) {
+    .hero {
+        height: auto;
+        /* Ajustado para móviles */
+        padding: 20px 0;
+        padding-top: 60px;
     }
 
-    .hero {
-        height: calc(100vh - 80px);
-        padding-top: 80px;
+    .hero-content {
+        padding: 10px;
+        max-width: 90%;
     }
 
     .hero h1 {
-        font-size: 48px;
+        font-size: 28px;
+        /* Reducido el tamaño del título en móviles */
+        margin-top: 10px;
     }
 
     .hero p {
-        font-size: 20px;
-    }
-
-    .section {
-        padding: 80px 20px;
-        max-width: 100%;
-    }
-
-    .section h2 {
-        font-size: 35px;
-        margin-bottom: 50px;
-    }
-
-    .story-images {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .image-container {
-        min-height: 300px;
-    }
-
-    .details ul {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    #rsvp-form {
-        padding: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 36px;
+        font-size: 16px;
+        /* Ajustado el tamaño del texto para móviles */
     }
 
     .btn {
-        padding: 12px 30px;
-        font-size: 14px;
+        font-size: 12px;
+        /* Reducido el tamaño del botón en móviles */
+        padding: 10px 20px;
+        max-width: 90%;
+    }
+
+    .swiper-container {
+        width: 100%;
+        /* Ocupar todo el ancho en móviles */
+        max-width: 100%;
+        height: auto;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        height: auto;
+        max-height: 60vh;
+        /* Limitar la altura en móviles */
+    }
+
+    /* Ajuste para la sección de detalles */
+    .details ul {
+        grid-template-columns: 1fr;
+        /* Una sola columna en móviles */
+        gap: 15px;
     }
 
     .details li {
-        padding: 18px;
-        font-size: 20px;
+        font-size: 16px;
+        padding: 15px;
     }
 }
