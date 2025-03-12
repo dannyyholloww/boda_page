@@ -1,24 +1,3 @@
-// Importar los módulos necesarios desde Firebase v9+
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics";
-
-// Configuración de Firebase
-const firebaseConfig = {
-    apiKey: "AIzaSyDyC9ciDu1-xMImnV-81euqE2aufK-HV2s",
-    authDomain: "bdinvitadosboda2025.firebaseapp.com",
-    projectId: "bdinvitadosboda2025",
-    storageBucket: "bdinvitadosboda2025.firebasestorage.app",
-    messagingSenderId: "709236861633",
-    appId: "1:709236861633:web:56fa2849a6bfdad1ca4240",
-    measurementId: "G-571WLGKDDX"
-};
-
-// Inicializar Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = getFirestore(app); // Obtener Firestore
-
 // Manejo del formulario RSVP
 const form = document.getElementById('rsvp-form');
 form.addEventListener('submit', async function (event) {
@@ -31,7 +10,7 @@ form.addEventListener('submit', async function (event) {
     const data = { nombre, invitados, comentarios };
 
     try {
-        // Enviar datos al backend
+        // Enviar datos al servidor para que lo guarde en Firebase
         const response = await fetch('/rsvp', {
             method: 'POST',
             headers: {
