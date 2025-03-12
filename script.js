@@ -31,12 +31,24 @@ form.addEventListener('submit', async function (event) {
     const data = { nombre, invitados, comentarios };
 
     try {
-        // Guardar en Firestore usando la nueva API modular
-        await addDoc(collection(db, 'asistencias'), data);
-        alert('Asistencia confirmada correctamente.');
-        form.reset(); // Limpiar el formulario
+        // Enviar datos al backend
+        const response = await fetch('/rsvp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        const result = await response.text();
+        if (response.ok) {
+            alert(result);
+            form.reset(); // Limpiar el formulario
+        } else {
+            alert('Hubo un error al enviar el formulario. Inténtalo de nuevo.');
+        }
     } catch (error) {
-        console.error('Error al guardar:', error);
+        console.error('Error al enviar:', error);
         alert('Hubo un error al enviar el formulario. Inténtalo de nuevo.');
     }
 });
