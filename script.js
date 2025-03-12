@@ -49,16 +49,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const data = { nombre, invitados, comentarios };
 
-        fetch('http://127.0.0.1:5000/guardar_asistencia', {
+        // Cambia la URL por la de tu aplicación web de Google Apps Script
+        fetch('https://script.google.com/macros/s/AKfycbwJL7c61Ecsucv_AdHNT29vUpwDK0c4zNmFqagpUiIM62UW5MNzD4GFfkjHRiCcXuEB/exec', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         })
             .then(response => response.json())
-            .then(data => alert(data.mensaje))
-            .catch(error => console.error('Error:', error));
-
-        form.reset();
+            .then(data => {
+                alert(data.mensaje); // Muestra un mensaje de éxito
+                form.reset(); // Limpia el formulario
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar el formulario. Inténtalo de nuevo.');
+            });
     });
 
     // Menú desplegable para móviles
@@ -88,3 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+
