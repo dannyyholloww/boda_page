@@ -12,10 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js"></script>
-
-
+    <script type="module" src="script.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
@@ -66,62 +63,51 @@
             </div>
     </section>
 
-
-
     <!-- Nuestra Historia -->
     <section id="nuestra-historia" class="section">
         <div class="container">
             <h2>Nuestra Historia</h2>
-            <p class="justified-text">Nos conocimos un día al salir de la escuela. Danny, con su gran determinación,
-                les pidió a unas amigas en común que nos presentaran, pero Milena, sin imaginar lo que el destino tenía
-                preparado, apenas le prestó atención. No, no fue amor a primera vista. Coincidimos algunas veces, pero
-                siempre nos limitábamos a un simple saludo. En ese momento, no sabíamos que la vida tenía otros planes
-                para nosotros.
-                Pasaron casi tres años hasta que, en 2015, Milena recibió un mensaje inesperado de Danny (sí, él fue
-                valiente y dio el primer paso). La invitó a acompañarlo a una práctica de baile, y ella, sin sospechar
-                lo que se estaba cocinando en el universo, aceptó. Lo que parecía un simple plan se convirtió en el
-                inicio de algo mucho más grande. Desde ese día, cada fin de semana estaba reservado para nosotros. Y
-                cuanto más nos veíamos, más queríamos estar juntos. Lo curioso es que ambos pensábamos que sería algo
-                pasajero de unos meses... ¡Qué equivocados estábamos!
-                Así comenzó nuestra historia de amor, una aventura que ya lleva casi 10 años. Hemos crecido juntos,
-                celebrado logros, viajado, reído hasta que nos doliera la barriga y construidos recuerdos que atesoramos
-                con el alma.
-                Y como sabemos que les encanta el chisme, aquí viene la parte que estaban esperando… la historia de la
-                propuesta.
-                Para darles un poco de contexto, Milena, en un arrebato de emoción, decidió que quería ir a un concierto
-                en Francia. Lo que comenzó como un simple plan terminó convirtiéndose en la organización de un viaje por
-                Europa… sin que ella supiera que ese viaje cambiaría su vida.
-                Desde siempre, Milena dejó claro que no se casaría sin antes tener su diploma universitario en mano. Y,
-                como si el destino estuviera conspirando a favor de Danny, el mismo día que partían de viaje, ella
-                retiró su diploma. ¡Perfecto! Danny no dejó ni que se secara la tinta antes de decidir que era el
-                momento de dar el gran paso.
-                Ese día, en el aeropuerto, los papás de Milena empezaron a comportarse de manera extraña, especialmente
-                su mamá. Esto despertó sus sospechas, así que, como haría cualquier persona en su lugar, le escribió a
-                una amiga para contarle que creía que Danny le iba a proponer matrimonio. Bueno… el mensaje nunca llegó.
-                (Sí, aún seguimos esperando que llegue ese mensaje).
-                Danny no es precisamente un experto en ocultar sorpresas. Durante el viaje, empezó a hacer preguntas
-                sospechosas: "¿Te gustaría que te pidieran matrimonio en el concierto?" o "De los lugares que
-                visitaremos, ¿cuál te emociona más?". Para Milena, la intención estaba más que clara, pero decidió no
-                darle muchas vueltas y simplemente disfrutar del viaje pase lo que pase.
-                Hasta que llegó ese momento mágico.
-                En la increíble Costa Amalfitana, después de un día recorriendo el paraíso, Danny, con el corazón
-                latiéndole a mil por hora, comenzó a hablar (bajito y nervioso) sobre los años juntos, los momentos
-                vividos y lo mucho que significaba este amor. Y entonces, le preguntó a Milena si quería casarse con él.
-                Y ella dijo… ¡SÍ!
-                Así que, el 30 de agosto de 2025, nos casamos.
-                Queremos que seas testigo de esta maravillosa locura que llamamos amor y que celebres con nosotros este
-                día inolvidable. Prometemos buena comida, muchas risas y, si tienes suerte… ¡un par de pasos de baile
-                desastrosos que quedarán para la historia!
-                ¡Ven a celebrar con nosotros y a ser parte de este capítulo tan especial en nuestras vidas!
-            </p>
 
+            <!-- Sección 1: El primer encuentro -->
+            <div class="historia-seccion">
+                <h3 class="historia-titulo">El Primer Encuentro</h3>
+                <p class="justified-text">Nos conocimos un día al salir de la escuela. Danny, con su gran determinación,
+                    les pidió a unas amigas en común que nos presentaran, pero Milena, sin imaginar lo que el destino
+                    tenía preparado, apenas le prestó atención. No, no fue amor a primera vista. Coincidimos algunas
+                    veces, pero siempre nos limitábamos a un simple saludo. En ese momento, no sabíamos que la vida
+                    tenía otros planes para nosotros.</p>
+                <blockquote class="historia-cita">"No fue amor a primera vista, pero el destino tenía otros planes."
+                </blockquote>
+            </div>
+
+            <!-- Sección 2: El primer mensaje -->
+            <div class="historia-seccion">
+                <h3 class="historia-titulo">El Primer Mensaje</h3>
+                <p class="justified-text">Pasaron casi tres años hasta que, en 2015, Milena recibió un mensaje
+                    inesperado de Danny (sí, él fue valiente y dio el primer paso). La invitó a acompañarlo a una
+                    práctica de baile, y ella, sin sospechar lo que se estaba cocinando en el universo, aceptó. Lo que
+                    parecía un simple plan se convirtió en el inicio de algo mucho más grande.</p>
+                <blockquote class="historia-cita">"Un mensaje cambió todo. ¿Qué hubiera pasado si no lo enviaba?"
+                </blockquote>
+            </div>
+
+            <!-- Sección 3: La propuesta -->
+            <div class="historia-seccion">
+                <h3 class="historia-titulo">La Propuesta</h3>
+                <p class="justified-text">En la increíble Costa Amalfitana, después de un día recorriendo el paraíso,
+                    Danny, con el corazón latiéndole a mil por hora, comenzó a hablar (bajito y nervioso) sobre los años
+                    juntos, los momentos vividos y lo mucho que significaba este amor. Y entonces, le preguntó a Milena
+                    si quería casarse con él. Y ella dijo… ¡SÍ!</p>
+                <blockquote class="historia-cita">"En la Costa Amalfitana, nuestro amor dio el siguiente paso."
+                </blockquote>
+            </div>
+        </div>
     </section>
 
     <!-- Detalles de la Boda -->
     <section id="detalles" class="section details">
         <div class="container">
             <h2>Detalles de la Boda</h2>
-
             <!-- Ceremonia Eclesiástica -->
             <div class="evento">
                 <h3>Ceremonia Eclesiástica</h3>
@@ -138,15 +124,13 @@
                 <ul>
                     <li><strong>Fecha:</strong> 30 de agosto del 2025</li>
                     <li><strong>Hora:</strong> 9:00 PM</li>
-                    <li><strong>Lugar:</strong> C. Aquilino de la Guardia, Hotel Bristol</li>
+                    <li><strong>Lugar:</strong> C. Aquilino de la Guardia, Hotel Bristol, Salón Colonial</li>
                     <li><strong>Código de Vestimenta:</strong> Formal</li>
                 </ul>
                 <p class="frase-especial">
                     ¡Prepárate para una boda llena de colores! Dejemos el blanco y tonos similares para la novia.
                 </p>
             </div>
-
-
         </div>
     </section>
 
@@ -154,18 +138,12 @@
     <section id="confirmar" class="section rsvp">
         <div class="container">
             <h2>Confirmar Asistencia</h2>
-            <form id="rsvp-form">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-
-                <label for="invitados">Número de Invitados:</label>
-                <input type="number" id="invitados" name="invitados" min="1" max="5" required>
-
-                <label for="comentarios">Comentarios:</label>
-                <textarea id="comentarios" name="comentarios" rows="4"></textarea>
-
-                <button type="submit">Enviar</button>
-            </form>
+            <p class="mensaje-llamativo">¡Haz click en la imagen para confirmar tu asistencia! 🎉</p>
+            <div class="imagen-container">
+                <a href="https://forms.gle/eESXgs6J6DjZTfim9" target="_blank">
+                    <img src="img/submit.png" alt="Confirmar Asistencia" class="confirmar-imagen">
+                </a>
+            </div>
         </div>
     </section>
 
@@ -175,8 +153,6 @@
             <p>&copy; 2025 Nuestra Boda. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 
 </html>

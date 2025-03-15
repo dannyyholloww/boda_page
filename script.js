@@ -1,39 +1,5 @@
-// Manejo del formulario RSVP
-const form = document.getElementById('rsvp-form');
-form.addEventListener('submit', async function (event) {
-    event.preventDefault();
-
-    const nombre = document.getElementById('nombre').value;
-    const invitados = document.getElementById('invitados').value;
-    const comentarios = document.getElementById('comentarios').value;
-
-    const data = { nombre, invitados, comentarios };
-
-    try {
-        // Enviar datos al servidor para que lo guarde en Firebase
-        const response = await fetch('/rsvp', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
-
-        const result = await response.text();
-        if (response.ok) {
-            alert(result);
-            form.reset(); // Limpiar el formulario
-        } else {
-            alert('Hubo un error al enviar el formulario. Inténtalo de nuevo.');
-        }
-    } catch (error) {
-        console.error('Error al enviar:', error);
-        alert('Hubo un error al enviar el formulario. Inténtalo de nuevo.');
-    }
-});
-
-// Observador para animaciones
-const observer = new IntersectionObserver((entries) => {
+// Observador para animaciones de secciones generales
+const observerSections = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
@@ -41,8 +7,23 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
+// Observar todas las secciones generales
 document.querySelectorAll('.section').forEach(section => {
-    observer.observe(section);
+    observerSections.observe(section);
+});
+
+// Observador para animaciones de las secciones de la historia
+const observerHistoria = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+// Observar todas las secciones de la historia
+document.querySelectorAll('.historia-seccion').forEach(seccion => {
+    observerHistoria.observe(seccion);
 });
 
 // Efecto hover en imágenes
